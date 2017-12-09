@@ -3,6 +3,10 @@ package hw;
 import java.util.*;
 import org.jgrapht.*;
 import org.jgrapht.graph.*;
+import org.jgrapht.traverse.BreadthFirstIterator;
+import org.jgrapht.traverse.ClosestFirstIterator;
+import org.jgrapht.traverse.DepthFirstIterator;
+import org.jgrapht.traverse.RandomWalkIterator;
 
 public class Main {
 
@@ -38,8 +42,74 @@ public class Main {
         //Laos also shares a border with Myanmar
         myMap.addEdge(LA, MM);
 
-        //System.out.println(myMap.toString());
         System.out.println(myMap);
+
+        System.out.println("Breadth first iteration starting from China");
+
+        final Iterator<String> bf = new BreadthFirstIterator<>(myMap, CN);
+        while (bf.hasNext()) {
+            final String country = bf.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Breadth first iteration starting from Vietnam");
+
+
+        final Iterator<String> bf2 = new BreadthFirstIterator<>(myMap, VN);
+        while (bf2.hasNext()) {
+            final String country = bf2.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Closest first iteration starting from China");
+
+        final Iterator<String> cf = new ClosestFirstIterator<>(myMap, CN);
+        while (cf.hasNext()) {
+            final String country = cf.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Closest first iteration starting from Vietnam");
+
+        final Iterator<String> cf2 = new ClosestFirstIterator<>(myMap, VN);
+        while (cf2.hasNext()) {
+            final String country = cf2.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Depth first iteration starting from China");
+
+        final Iterator<String> df = new DepthFirstIterator<>(myMap, CN);
+        while (df.hasNext()) {
+            final String country = df.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Depth first iteration starting from Vietnam");
+
+
+        final Iterator<String> df2 = new DepthFirstIterator<>(myMap, VN);
+        while (df2.hasNext()) {
+            final String country = df2.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Random walk iterator for starting point in China with a max number of steps");
+
+
+        final Iterator<String> rw = new RandomWalkIterator<>(myMap, CN, true, 8);
+        while (rw.hasNext()) {
+            final String country = rw.next();
+            System.out.println(country);
+        }
+
+        System.out.println("Random walk iterator for starting point in Vietnam with a max number of steps");
+
+        final Iterator<String> rw2 = new RandomWalkIterator<>(myMap, VN, true, 8);
+        while (rw2.hasNext()) {
+            final String country = rw2.next();
+            System.out.println(country);
+        }
 
 
     }
