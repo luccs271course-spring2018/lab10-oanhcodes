@@ -7,6 +7,7 @@ import org.jgrapht.traverse.BreadthFirstIterator;
 import org.jgrapht.traverse.ClosestFirstIterator;
 import org.jgrapht.traverse.DepthFirstIterator;
 import org.jgrapht.traverse.RandomWalkIterator;
+import org.jgrapht.alg.color.GreedyColoring;
 
 public class Main {
 
@@ -44,7 +45,7 @@ public class Main {
 
         System.out.println(myMap);
 
-        System.out.println("Breadth first iteration starting from China");
+        System.out.println("\nBreadth first iteration starting from China");
 
         final Iterator<String> bf = new BreadthFirstIterator<>(myMap, CN);
         while (bf.hasNext()) {
@@ -52,7 +53,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Breadth first iteration starting from Vietnam");
+        System.out.println("\nBreadth first iteration starting from Vietnam");
 
 
         final Iterator<String> bf2 = new BreadthFirstIterator<>(myMap, VN);
@@ -61,7 +62,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Closest first iteration starting from China");
+        System.out.println("\nClosest first iteration starting from China");
 
         final Iterator<String> cf = new ClosestFirstIterator<>(myMap, CN);
         while (cf.hasNext()) {
@@ -69,7 +70,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Closest first iteration starting from Vietnam");
+        System.out.println("\nClosest first iteration starting from Vietnam");
 
         final Iterator<String> cf2 = new ClosestFirstIterator<>(myMap, VN);
         while (cf2.hasNext()) {
@@ -77,7 +78,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Depth first iteration starting from China");
+        System.out.println("\nDepth first iteration starting from China");
 
         final Iterator<String> df = new DepthFirstIterator<>(myMap, CN);
         while (df.hasNext()) {
@@ -85,7 +86,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Depth first iteration starting from Vietnam");
+        System.out.println("\nDepth first iteration starting from Vietnam");
 
 
         final Iterator<String> df2 = new DepthFirstIterator<>(myMap, VN);
@@ -94,7 +95,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Random walk iterator for starting point in China with a max number of steps");
+        System.out.println("\nRandom walk iterator for starting point in China with a max number of steps");
 
 
         final Iterator<String> rw = new RandomWalkIterator<>(myMap, CN, true, 8);
@@ -103,7 +104,7 @@ public class Main {
             System.out.println(country);
         }
 
-        System.out.println("Random walk iterator for starting point in Vietnam with a max number of steps");
+        System.out.println("\nRandom walk iterator for starting point in Vietnam with a max number of steps");
 
         final Iterator<String> rw2 = new RandomWalkIterator<>(myMap, VN, true, 8);
         while (rw2.hasNext()) {
@@ -111,6 +112,10 @@ public class Main {
             System.out.println(country);
         }
 
+        System.out.println("\nPrint map colors");
+
+        GreedyColoring colorMap = new GreedyColoring(myMap);
+        System.out.println(colorMap.getColoring());
 
     }
 }
