@@ -2,11 +2,10 @@ package hw;
 
 public class CountryCodes {
 
-    final static String CN = "China";
-    final static String VN = "Vietnam";
-    final static String LA = "Laos";
-    final static String MM = "Myanmar";
-    final static String NP = "Nepal";
-    final static String KG = "Kyrgyzstan";
-
+  static final String CN = "China";
+  static final String VN = "Vietnam";
+  static final String LA = "Laos";
+  static final String MM = "Myanmar";
+  static final String NP = "Nepal";
+  static final String KG = "Kyrgyzstan";
 }
